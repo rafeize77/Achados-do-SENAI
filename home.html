@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achados do SENAI</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+
+    <h1>Achados do SENAI</h1>
+   <!-- <button id="logoutBtn">Sair</button> -->
+    <div class="perfil-container">
+        <img id="avatar" src="default.jpg" alt="Foto de perfil" class="avatar" onclick="toggleMenu()">
+        <div id="menuPerfil" class="menu-perfil">
+          <button onclick="logout()">Sair</button>
+        </div>
+      </div>
+      <div class="botoes-superiores">
+        <button id="toggleFormBtn">+</button>
+        <button id="searchBtn" class="search-btn">
+          <span class="search-icon">&#128269;</span>
+        </button>
+      </div>
+  
+  <div id="formularioCadastro" style="display: none;">
+    <h2>Novo item</h2>
+    <form id="formItem">
+      <input type="text" placeholder="Nome do item" name="nome" required><br>
+      <input type="text" placeholder="Descrição" name="descricao" required><br>
+      <input type="text" placeholder="Local encontrado/perdido" name="local" required><br>
+      <button type="submit">Cadastrar</button>
+    </form>
+  </div>
+
+  
+  <h2>Itens encontrados</h2>
+  <ul id="listaItens">
+    
+  </ul>
+
+  <script>
+    window.onload = function() {
+        
+        const perfilImage = localStorage.getItem('perfilImage');
+        if (perfilImage) {
+            document.getElementById('avatar').src = perfilImage;
+        }
+    
+        
+        const itens = JSON.parse(localStorage.getItem("itens")) || [];
+        const lista = document.getElementById("listaItens");
+    
+        itens.forEach(item => {
+            const li = document.createElement("li");
+            li.innerHTML = `<strong>${item.nome}</strong>: ${item.descricao} (Local: ${item.local})`;
+            lista.appendChild(li);
+        });
+    
+        
+        document.getElementById("formItem").addEventListener("submit", function(event) {
+            event.preventDefault();
+    
+            const nome = this.nome.value;
+            const descricao = this.descricao.value;
+            const local = this.local.value;
+    
+            const novoItem = { nome, descricao, local };
+    
+            const itens = JSON.parse(localStorage.getItem("itens")) || [];
+            itens.push(novoItem);
+            localStorage.setItem("itens", JSON.stringify(itens));
+    
+            const li = document.createElement("li");
+            li.innerHTML = `<strong>${nome}</strong>: ${descricao} (Local: ${local})`;
+            document.getElementById("listaItens").appendChild(li);
+    
+            this.reset();
+            toggleFormulario();
+        });
+    };
+    
+    function toggleFormulario() {
+        const form = document.getElementById("formularioCadastro");
+        const botao = document.getElementById("toggleFormBtn");
+    
+        if (form.style.display === "none") {
+            form.style.display = "block";
+            botao.textContent = "Cancelar cadastro";
+        } else {
+            form.style.display = "none";
+            botao.textContent = "Cadastrar item";
+        }
+    }
+
+    function toggleMenu() {
+    const menu = document.getElementById("menuPerfil");
+    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+
+function logout() {
+    localStorage.removeItem("perfilImage");
+    window.location.href = "index.html";
+}
+
+window.addEventListener("click", function(event) {
+    const avatar = document.getElementById("avatar");
+    const menu = document.getElementById("menuPerfil");
+
+    if (!avatar.contains(event.target) && !menu.contains(event.target)) {
+        menu.style.display = "none";
+    }
+});
+    </script>
+    
+</body>
+</html>

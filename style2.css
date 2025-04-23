@@ -1,0 +1,188 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.botoes-superiores {
+    display: flex;
+    justify-content: center; /* centraliza na horizontal */
+    gap: 20px; /* espaço entre os botões */
+    margin: 40px 0; /* espaço em cima e embaixo */
+}
+
+#toggleFormBtn {
+    width: 100px;
+    height: 100px;
+    background-color: #003C6C;
+    color: white;
+    border: none;
+    border-radius: 10%;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#toggleFormBtn:hover {
+    background-color: #002B4D;
+}
+
+.search-btn {
+    padding: 20px;
+    background-color: #003C6C;
+    color: white;
+    border: none;
+    border-radius: 10%;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-btn:hover {
+    background-color: #002B4D;
+}
+
+.search-icon {
+    font-size: 40px;
+    margin-right: 8px;
+}
+
+
+#formularioCadastro {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+#formularioCadastro h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+#formItem input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+#formItem button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#formItem button:hover {
+    background-color: #0056b3;
+}
+
+.avatar {
+    position: fixed;  
+    top: 20px; 
+    right: 20px; 
+    width: 50px;
+    height: 50px; 
+    border-radius: 50%;  
+    cursor: pointer;
+    transition: transform 0.3s ease; 
+}
+
+.avatar:hover {
+    transform: scale(1.1);  
+}
+
+h1 {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #007bff;
+    color: white;
+    margin: 0;
+}
+
+
+h2 {
+    text-align: center;
+    font-size: 1.8em;
+    margin-top: 40px;
+    color: #333;
+}
+
+#listaItens {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#listaItens li {
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+#listaItens li strong {
+    color: #007bff;
+}
+
+
+.perfil-container {
+    position: relative; 
+    display: inline-block;
+}
+
+.avatar {
+    position: fixed;  
+    top: 20px; 
+    right: 20px; 
+    width: 50px;
+    height: 50px; 
+    border-radius: 50%;  
+    cursor: pointer;
+    transition: transform 0.3s ease; 
+}
+
+.menu-perfil {
+    display: none;
+    position: absolute;
+    top: -20px; 
+    left: 1420px; 
+    background-color: white;
+    border: 1px solid #ccc;
+    min-width: 100px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    border-radius: 6px;
+}
+
+.menu-perfil button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.menu-perfil button:hover {
+    background-color: #f0f0f0;
+}
