@@ -78,6 +78,9 @@
             this.reset();
             toggleFormulario();
         });
+
+document.getElementById("toggleFormBtn").addEventListener("click", toggleFormulario);
+        
     };
     
     function toggleFormulario() {
@@ -89,8 +92,10 @@
             botao.textContent = "Cancelar cadastro";
         } else {
             form.style.display = "none";
-            botao.textContent = "Cadastrar item";
+            botao.textContent = "+";
         }
+
+        
     }
 
     function toggleMenu() {
